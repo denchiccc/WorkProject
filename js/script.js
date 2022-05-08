@@ -16,34 +16,28 @@
 
 // Код возьмите из предыдущего домашнего задания
 
-for (let i = 0; i < 3; i++){
-	console.log(i);
-	for (let j = 0; j < 3; j++){
-		console.log(j);
-			
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+
+const personalMovieDB = {
+	count: numberOfFilms,
+	movies: {},
+	actors: {},
+	genres: {},
+	privat: false,
+
+};
+
+for (let i = 1; i < 3; i++) {
+
+	const a = prompt('Один из последних просмотренных фильмов?', '');
+	const b = prompt('На сколько оцените его?', '');
+
+	if (a != '' && b != '' && a != null && b != null && a.length < 50 && b.length < 50) {
+		personalMovieDB.movies[a] = b;
+		console.log('All ok');
+	} else {
+		console.log('error');
+		i--;
 	}
-	
 }
-
-let result = '';
-const lenght = 7;
-for (let i = 1; i < lenght; i++){
-
-
-	result += '\n';
-}
-console.log(result)
- 
-console.log( NaN || 2 || undefined );
-console.log( NaN && 2 && undefined );
-console.log( 1 && 2 && 3 );
-console.log( !1 && 2 || !3 );
- 
-console.log( 25 || null && !3 );
- 
-console.log( NaN || null || !3 || undefined || 5);
- 
-console.log( NaN || null && !3 && undefined || 5);
- 
-console.log( 5 === 5 && 3 > 1 || 5);
- 
+console.log(personalMovieDB);
