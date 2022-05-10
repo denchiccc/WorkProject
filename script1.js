@@ -92,21 +92,56 @@ returnNeighboringNumbers(5);
 
 // ! Задача 3
 
-/* function getMathResult(num1, num2) {
-	for (let i = 0; i < num2; i++){
-		num1 + num1;
+/* function getMathResult(num, times) {
+	if (typeof (times) !== 'number' || times <= 0) {
+		return num;
 	}
 
-	return(prog);
-} */
-let num1 = 5,
-	num2 = 3;
+	let str = '';
 
-for (let i = 0; i < num2; i++) {
-	let b = num1;
-	let a = num1;
-	console.log(a);
-	num1 += b;
-
-
+	for (let i = 1; i <= times; i++) {
+		if (i === times) {
+			str += `${num * i}`;
+			// Тут без черточек в конце
+		} else {
+			str += `${num * i}---`;
+			// Это тоже самое, что и
+			// str = str + num * i + "---"
+		}
+	}
+	console.log(str);
+	return str;
 }
+getMathResult(10, 5); */
+
+function getMathResult(num, times) {
+	if (typeof (times) !== 'number' || times <= 0) {
+		console.log(num);
+		return num;
+	}
+
+	let str = '';
+	for (let i = 1; i <= times; i++) {
+		if (times === i) {
+			str += `${num*i}`;
+		} else {
+			str += `${num*i}---`;
+		}
+
+
+	}
+	console.log(str);
+	return str;
+}
+getMathResult(5, 3);
+
+const ask = 'how are You';
+
+console.log(ask.length); // ! свойство определяет сколько символов в строке
+console.log(ask.toUpperCase()); // ! метод переводит все буквы в верхний регистр
+console.log(ask.toLowerCase()); // ! метод переводит все буквы в нижний регистр
+console.log(ask.indexOf('o'));
+
+const lonn = 'what is your name';
+
+console.log(lonn.slice(8, 13));
