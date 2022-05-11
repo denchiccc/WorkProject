@@ -145,3 +145,62 @@ console.log(ask.indexOf('o'));
 const lonn = 'what is your name';
 
 console.log(lonn.slice(8, 13));
+
+// ! Задача
+
+// Место для первой задачи
+function calculateVolumeAndArea(num) {
+	if (typeof (num) == 'string' || isNaN(num) || num < 0) {
+		console.log('При вычислении произошла ошибка');
+	} else {
+		const S = 6 * (num * num);
+		const V = num * num * num;
+		console.log('Объем куба: ' + `${V},`, 'площадь всей поверхности:' + `${S}`);
+	}
+}
+calculateVolumeAndArea();
+
+console.log(typeof (3.4));
+
+function getCoupeNumber(vagNum) {
+
+	if (typeof (vagNum) !== 'number' || vagNum < 0 || vagNum) {
+		console.log('Ошибка.Проверте правельность в веденного места');
+	} else if (vagNum === 0 || vagNum > 36) {
+		console.log('Таких мест в вагоне не существует');
+	}
+
+	for (let i = 1; i <= vagNum; i++) {
+		if (vagNum <= 4) {
+			console.log(1);
+			break;
+		} else if (vagNum > 4 && vagNum <= 8) {
+			console.log(2);
+			break;
+		} else if (vagNum > 8 && vagNum <= 12) {
+			console.log(3);
+			break;
+		} else if (vagNum > 12 && vagNum <= 16) {
+			console.log(4);
+			break;
+		} else if (vagNum > 16 && vagNum <= 20) {
+			console.log(5);
+			break;
+		} else if (vagNum > 20 && vagNum <= 24) {
+			console.log(6);
+			break;
+		} else if (vagNum > 24 && vagNum <= 28) {
+			console.log(7);
+			break;
+		} else if (vagNum > 28 && vagNum <= 32) {
+			console.log(8);
+			break;
+		} else if (vagNum > 32 && vagNum <= 36) {
+			console.log(9);
+			break;
+		}
+
+	}
+
+}
+getCoupeNumber();

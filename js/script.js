@@ -149,4 +149,33 @@ function enterPersonalMovi() {
 }
 enterPersonalMovi();
 
-console.log(personalMovieDB);
+function writeYourGenres() {
+
+	for (let i = 1; i <= 3; i++) {
+		const a = prompt(`Ваш любимый жанр под номером ${i}`);
+		personalMovieDB.genres[i - 1] = a;
+
+	}
+
+}
+writeYourGenres();
+
+// ! 1 способ создание функции showMyDv 
+/* function showMyDv() {
+	if (personalMovieDB.privat === false) {
+		console.log(personalMovieDB);
+	}
+}
+showMyDv(); */
+
+// ! 2 способ создания функции showMyDv 
+function showMyDB(hidden /* - шаблон поведения(патерн) */ ) {
+	if (!hidden /*  - означает база даннных не скрыта */ ) {
+		console.log(personalMovieDB);
+
+	}
+}
+showMyDB(personalMovieDB.privat);
+
+
+// console.log(personalMovieDB);
