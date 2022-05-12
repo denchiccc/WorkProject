@@ -155,52 +155,128 @@ function calculateVolumeAndArea(num) {
 	} else {
 		const S = 6 * (num * num);
 		const V = num * num * num;
-		console.log('Объем куба: ' + `${V},`, 'площадь всей поверхности:' + `${S}`);
+		console.log(`Объем куба: ${V}, площадь всей поверхности: ${S}`);
 	}
 }
-calculateVolumeAndArea();
+calculateVolumeAndArea(5);
 
 console.log(typeof (3.4));
 
 function getCoupeNumber(vagNum) {
 
-	if (typeof (vagNum) !== 'number' || vagNum < 0 || vagNum) {
-		console.log('Ошибка.Проверте правельность в веденного места');
+	if (typeof (vagNum) !== 'number' || vagNum < 0 || !Number.isInteger(vagNum) /* проверяет является ли переменная целым числом */ ) {
+		return ('Ошибка.Проверте правельность в веденного места');
+
 	} else if (vagNum === 0 || vagNum > 36) {
-		console.log('Таких мест в вагоне не существует');
+		return ('Таких мест в вагоне не существует');
 	}
 
 	for (let i = 1; i <= vagNum; i++) {
 		if (vagNum <= 4) {
-			console.log(1);
-			break;
+			return (1);
+
 		} else if (vagNum > 4 && vagNum <= 8) {
-			console.log(2);
-			break;
+			return (2);
+
 		} else if (vagNum > 8 && vagNum <= 12) {
-			console.log(3);
-			break;
+			return (3);
+
 		} else if (vagNum > 12 && vagNum <= 16) {
-			console.log(4);
-			break;
+			return (4);
+
 		} else if (vagNum > 16 && vagNum <= 20) {
-			console.log(5);
-			break;
+			return (5);
+
 		} else if (vagNum > 20 && vagNum <= 24) {
-			console.log(6);
-			break;
+			return (6);
+
 		} else if (vagNum > 24 && vagNum <= 28) {
-			console.log(7);
-			break;
+			return (7);
+
 		} else if (vagNum > 28 && vagNum <= 32) {
-			console.log(8);
-			break;
+			return (8);
+
 		} else if (vagNum > 32 && vagNum <= 36) {
-			console.log(9);
-			break;
+			return (9);
+
 		}
 
 	}
 
 }
-getCoupeNumber();
+getCoupeNumber(7.8);
+
+// ! Пример CallBack функции
+function doSport(sit, CallBack) {
+	console.log(`Я присел: ${sit} раз`);
+	CallBack();
+}
+
+function doResult() {
+	console.log('Я выполнил упражнение!');
+
+}
+doSport(20, doResult);
+
+// ! Объекты деструкторизация объетов
+
+const options = {
+	name: 'test',
+	widht: 1050,
+	heidht: 1050,
+	colors: {
+		border: 'black',
+		bg: 'red',
+	}
+
+};
+
+/* console.log(options.name);
+delete(options.name);
+console.log(options); */
+// ! Способ перебора свойства объекта с помощью цикла
+/* for (let key in options) {
+	console.log(`Свойство объекта: ${key} значение объекта: ${options[key]}`); */
+// }
+// ! Способ достучатся до обьекта colors создаем цикл в нутри цикла
+
+for (let key in options) {
+	if (typeof (options[key]) === 'object') {
+		for (let i in options[key]) {
+			console.log(`Свойство объекта: ${i} значение объекта: ${options[key][i]}`);
+		}
+	} else {
+		console.log(`Свойство объекта: ${key} значение объекта: ${options[key]}`);
+	}
+
+
+}
+
+// ! Методы объекта :
+// ! 1 метотод Object.keys находит ключи нашего объекта
+
+const personHuman = {
+	name: 'Denis',
+	old: 25,
+	mal: 'man',
+	hobby: {
+		socet: 'Monday',
+		hochey: 'Wednesday'
+	}
+};
+console.log(Object.keys(personHuman).length);
+
+// ! Можно создавать методы в ручную 
+const personHman = {
+	name: 'Denis',
+	old: 25,
+	mal: 'man',
+	hobby: {
+		socet: 'Monday',
+		hochey: 'Wednesday'
+	},
+	makeTest: function () {
+		console.log('Test');
+	}
+};
+personHman.makeTest()

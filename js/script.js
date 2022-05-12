@@ -117,7 +117,7 @@ const personalMovieDB = {
 function remeberMyFilm() {
 	for (let i = 1; i < 3; i++) {
 
-		const a = prompt('Один из последних просмотренных фильмов?', '');
+		const a = prompt('Один из последних просмотренных фильмов?', '').trim( /* этот метод(str.trim()) удоляет пробельные символы в конце и начеле строки */ );
 		const b = prompt('На сколько оцените его?', '');
 
 		if (a != '' && b != '' && a != null && b != null && a.length < 50 && b.length < 50) {
