@@ -280,3 +280,92 @@ const personHman = {
 	}
 };
 personHman.makeTest()
+
+// ! Повторение методов объекта
+
+const woman = {
+	firstname: 'Anna',
+	yourname: 'Yrchenko',
+	old: 35,
+	hobby: {
+		drink: '3 litr',
+		eat: 'bread'
+	}
+
+};
+console.log(Object.keys(woman));
+console.log(Object.keys(woman).length);
+
+
+let counter = 0;
+
+for (let key in woman) {
+	if (typeof (woman[key]) === 'object') {
+		for (let i in woman[key]) {
+			console.log(`Свойство объекта: ${i} значение объекта: ${woman[key][i]}`);
+			counter++;
+		}
+	} else {
+		console.log(`Свойство объекта: ${key} значение объекта: ${woman[key]}`);
+		counter++;
+	}
+}
+console.log(counter);
+
+// ! Деструкторизация обьекта пример:
+
+const womуn = {
+	firstname: 'Anna',
+	yourname: 'Yrchenko',
+	old: 35,
+	hobby: {
+		drink: '3 litr',
+		eat: 'bread'
+	}
+
+};
+let {
+	drink,
+	eat
+} = womуn.hobby;
+console.log(eat);
+// ! 33 урок Массивы и подмасивы
+
+
+
+// ! 1 способ перебора масива
+const arr = [2, 4, 6, 7, 8, 9];
+for (let i = 0; i < arr.length; i++) {
+	console.log(arr[i]);
+};
+
+// ! 2 способ перебора масива
+const aRR = [2, 5, 6, 8, 9, 3];
+for (let i of aRR) {
+	console.log(i);
+}
+// ! Метод перебора масива forEach(function){} пример
+const arrTest = [3, 4, 6, 8, 1];
+arrTest.forEach(function (item, i, arrTest) {
+
+	console.log(`${i} : ${item} находится в масиве ${arrTest}`);
+
+});
+
+// ! метод преобразование перемнной строчной в массив
+
+const str = prompt("", "");
+const produts = str.split('', '');
+console.log(produts);
+
+// ! Сортировка элементов массива метод sort() можно применять с функцией так и без
+
+const arrTest2 = [4, 2, 9, 5, 1, 7];
+arrTest2.sort();
+console.log(arrTest2);
+
+
+function convert(a, b) {
+	return a - b;
+
+}
