@@ -369,3 +369,70 @@ function convert(a, b) {
 	return a - b;
 
 }
+
+//! Передача объекта по сылке изпользуя цикл
+
+
+const obj = {
+	a: 5,
+	b: 9,
+};
+
+function copy(mine) {
+	let copyObj = {};
+	for (let key in mine) {
+		copyObj[key] = mine[key];
+	}
+	return copyObj;
+}
+const newObj = copy(obj);
+console.log(newObj);
+newObj.a = 8;
+console.log(newObj);
+// ! Метод .assing() глубокая копия обьекта создает незовисимую копию объекта
+
+const add = {
+	a: 5,
+	b: 8,
+	c: 9,
+	d: {
+		e: 7,
+		k: 23
+	}
+};
+const rer = Object.assign({}, add);
+console.log(add);
+rer.d.e = 34;
+console.log(rer);
+
+// !Метод копирование масива .slide() это глубокая копия
+
+const oldArray = ['a', 'r', 't', 'd'];
+const newArray = oldArray.slice();
+newArray[3] = 'rtyyuuu';
+console.log(oldArray);
+console.log(newArray);
+
+// ! Оператор разворота ...
+
+const video = ['youtube', 'rutube', 'vimeo'],
+	blogs = ['wordpress', 'livejournul'],
+	internet = [...video, ...blogs, 'instagram'];
+console.log(internet);
+
+function war(a, b, c) {
+	console.log(a);
+	console.log(b);
+	console.log(c);
+}
+const nug = [2, 3, 5];
+war(...nug);
+
+const bad = {
+	one: 1,
+	two: 2
+};
+
+const err = {
+	...bad
+};
