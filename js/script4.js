@@ -324,3 +324,188 @@ const arr = [1, 4, 5, 7, 2];
 for (let i = 0; i < arr.length; i++) {
     console.log(arr[i]);
 }
+
+arr.forEach(function (item, i, arr) {
+    console.log(`${i} : ${item} внутри массива ${arr}`);
+});
+
+
+
+const obj1 = {
+    a: 4,
+    b: 3,
+    c: {
+        x: 3,
+        y: 6
+    }
+};
+
+function copy(maimObj) {
+    let copyObj = {};
+    let key;
+    for (let key in maimObj) {
+        copyObj[key] = maimObj[key];
+    }
+    return copyObj;
+}
+
+
+const newObj = copy(obj1);
+newObj.b = 10;
+console.log(newObj);
+console.log(obj1);
+const all = {
+    r: 6,
+    s: 9
+};
+const add = {};
+console.log(Object.assign(add, all));
+console.log(add);
+
+
+const oldArray = ['a', 't', 'r', 'q'];
+const newArray = oldArray.slice();
+console.log(newArray);
+
+
+
+
+
+// function showExperience(plan) {
+
+//     const {
+//         exp
+//     } = plan.skills;
+//     console.log(exp);
+// };
+// showExperience(personalPlanPeter);
+
+
+
+
+
+const array = [23, 34, 56, 67];
+let [s1, s2, , s4] = array;
+console.log(s1);
+console.log(s2);
+console.log(s4);
+
+
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+
+    showAgeAndLangs: function (plan) {
+        const {
+            age
+        } = plan;
+        const {
+            languages
+        } = plan.skills;
+        let str = `Мне ${age} и я владею языками: `;
+        languages.forEach(function (lang) {
+            str += `${lang.toUpperCase()} `;
+        });
+        console.log(str);
+        return str;
+    }
+
+};
+personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+
+
+/* function showProgrammingLangs(plan) {
+    let str = '';
+    const {
+        programmingLangs
+    } = plan.skills;
+    for (let key in programmingLangs) {
+        str += `Язык ${key} изучен на ${programmingLangs[key]}\n`
+    }
+    console.log(str);
+    return str;
+}
+
+showProgrammingLangs(personalPlanPeter); */
+
+function showProgrammingLangs(plan) {
+    let str = '';
+    for (let key in plan.skills.programmingLangs) {
+        if (key == 0) {
+            return ('');
+        } else {
+            str += `Язык ${key} изучен ${plan.skills.programmingLangs[key]}\n`;
+        }
+    }
+
+    return str;
+}
+showProgrammingLangs(personalPlanPeter);
+
+
+let descr = 'dont,worry,i need to buy';
+console.log(descr.split(' '));
+
+let ln = [2, 3, 4, 4, 7];
+console.log(ln.join(' '));
+
+
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+function showFamily(arr) {
+    let str;
+    if (arr === 0) {
+        str = 'Семья пуста';
+    } else {
+        str = `Семья состоит из: ${arr.join(' ')} `;
+    }
+    return str;
+}
+showFamily(family);
+
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+
+    arr.forEach(function (index) {
+        console.log(index.toLowerCase());
+
+    });
+
+}
+standardizeStrings(favoriteCities);
+
+
+
+
+const someString = 'This is some strange string';
+
+function reverse(str) {
+    /* let s = str.split('');
+    let r = s.reverse();
+    let j = r.join('');
+    console.log(j);
+ */
+    if (typeof (str) === 'string') {
+        let s = '';
+        for (let i = str.length - 1; i >= 0; i--) {
+            s += str[i];
+        }
+        console.log(s);
+        return s;
+    } else {
+        console.log('Ошибка!');
+        return 'Ошибка!';
+    }
+
+}
+reverse(someString);
